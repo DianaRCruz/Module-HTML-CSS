@@ -8,7 +8,7 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-size: 1rem;
+  font-size: 0.85rem;
   letter-spacing: 0.1rem;
 }
 body {
@@ -37,7 +37,7 @@ header {
 
 main {
   max-width: 90vw;
-  height: 700px;
+  min-height: 700px;
   margin: 2.5% auto; /* Centering main container */
   display: grid;
   grid-template-rows: 1fr 1fr; /* Maintain equal row heights */
