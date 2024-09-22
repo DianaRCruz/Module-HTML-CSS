@@ -1,60 +1,180 @@
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  font-family: monospace;
+  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-size: large;
-  margin: 0px;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+}
+body {
+  width: 98vw;
+  height: 98vh;
+  display: grid;
+  grid-template-rows: 2.5fr 10fr 2fr;
+  grid-template-columns: 1fr;
+  grid-row-gap: 4px;
+  justify-items: center;
+  align-items: center;
+  overflow-y: scroll;
 }
 header {
-  top: 0;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
+  grid-column: 1/-1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
-  border-color: black;
-  border-width: 2px;
-  border-style: dashed;
+  padding-top: 35px;
+  gap: 10px;
+  overflow: hidden;
+  white-space-collapse: collapse;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
 }
 
-section {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
+main {
+  max-width: 90vw;
+  height: 700px;
+  margin: 2.5% auto; /* Centering main container */
+  display: grid;
+  grid-template-rows: 1fr 1fr; /* Maintain equal row heights */
+  grid-template-columns: 1fr 1fr; /* Two columns that are responsive */
+  grid-gap: 15px;
   justify-content: center;
-  align-items: flex-start;
-  margin: 40px;
+  min-width: 0;
+  padding-bottom: 16px;
+  padding-top: 10px;
 }
 article {
-  display: grid;
-  width: 440px;
-  height: 200px;
-  overflow: auto;
+  border-style: solid;
   border-color: black;
   border-width: 2px;
-  border-style: dashed;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 213px;
 }
 article:first-child {
-  background-color: rgb(198, 198, 198);
-  display: grid;
-  width: 900px;
-  height: 200px;
-  justify-items: center;
-  border-color: black;
-  border-width: 2px;
-  border-style: dashed;
+  grid-column: 1/-1;
+}
+article:first-child .img-container {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Git_session.svg/640px-Git_session.svg.png);
+}
+article:last-child .img-container {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Git_branches_two_forks_and_merge.svg/640px-Git_branches_two_forks_and_merge.svg.png);
+}
+article:nth-child(2) .img-container {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Two_women_operating_ENIAC_%28full_resolution%29.jpg/640px-Two_women_operating_ENIAC_%28full_resolution%29.jpg);
+}
+.img-container {
+  width: 100%;
+  height: 65%;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: black;
+}
+.article-text-container {
+  background-color: rgb(255, 255, 255);
+  height: 35%;
+  min-width: 213px;
+  max-width: 95%;
+  padding: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  gap: 1.5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  /* overflow: hidden;
+  white-space-collapse: collapse;
+  text-wrap: nowrap;
+  text-overflow: ellipsis; */
+}
+
+.hidden {
+  display: none;
+}
+h2 {
+  font-size: 1.1em;
+}
+button {
+  font-size: 0.8rem;
+  padding: 5px;
+  background-color: white;
+  border-style: solid;
+  border-radius: 0.5px;
+  border-width: 1px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+summary {
+  font-size: 0.9em;
 }
 footer {
-  bottom: 0px;
+  grid-column: 1/-1;
   display: flex;
-  padding: 30px;
-  bottom: 0px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-around;
-  border-color: black;
-
-  border-top-style: dashed;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: black;
+}
+.summary-wrapper {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+@media (max-width: 638px) {
+  .article-text-container {
+    font-size: 0.79em;
+  }
+  .summary-wrapper {
+    display: none;
+  }
+  button {
+    font-size: 0.8em;
+  }
+  footer {
+    font-size: 0.9em;
+    min-height: 70px;
+    max-height: 90px;
+  }
+}
+
+@media (max-width: 430px) {
+  .article-text-container {
+    font-size: 0.69em;
+  }
+  .summary-wrapper {
+    display: none;
+  }
+  button {
+    font-size: 0.8em;
+  }
+  header {
+    font-size: 0.9em;
+  }
+  header p {
+    display: none;
+  }
+  footer {
+    font-size: 0.6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-height: 800px) {
+  header {
+    display: none;
+  }
 }
